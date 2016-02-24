@@ -48,9 +48,9 @@
 			<div class="row titles" ng-show="searchResults.length">
 				<div class="col-xs-12 col-md-8 col-md-offset-2">
 					<p class="header-text text-center">Search Results:</p>
-						<div ng-repeat="title in searchResults ">
-							<button class="btn btn-default titleNames" ng-click="getTitleDetails(title._id)">{{title.TitleName}}</button>
-						</div>
+						<ul class="list-group" ng-repeat="title in searchResults ">
+							<a href="#" class="list-group-item" ng-click="getTitleDetails(title._id)">{{title.TitleName}}</a>
+						</ul>
 				</div>
 			</div>
 
