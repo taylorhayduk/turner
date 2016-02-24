@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Taylor Hayduk | Turner Interview Coding Challenge</title>
+
+		<link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body ng-app="turnerApp">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Turner Interview</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav pull-right">
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/contact">Contact</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav>
+
+		<div class="container content" ng-controller="homeController">
+
+			<div class="row">
+
+				<div class="col-md-8 col-md-offset-2 text-center col-xs-12">
+					<form class="form-inline">
+						<div class="form-group">
+							<input type="text" class="form-control input-lg titleSearch" ng-model="formData.text">
+							<button class="btn btn-primary btn-lg" ng-click="searchTitles()">Search</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="row titles" ng-show="searchResults.length">
+				<div class="col-xs-12 col-md-8 col-md-offset-2">
+					<p class="header-text text-center">Search Results:</p>
+						<div ng-repeat="title in searchResults ">
+							<button class="btn btn-default titleNames" ng-click="getTitleDetails(title._id)">{{title.TitleName}}</button>
+						</div>
+				</div>
+			</div>
+
+			<div class="row details" ng-show="titleDetails.length">
+				<div class="col-xs-12 col-md-8 col-md-offset-2">
+					<p class="header-text text-center">Details for {{titleDetails[0].TitleName}}</p>
+					<div><strong>Description: </strong></div>
+					<p ng-repeat="descr in titleDetails[0].Storylines">{{ descr.Description }}</p>
+					<p><strong>Release Year: </strong> {{titleDetails[0].ReleaseYear}}</p>
+					<p><strong>Title Id: </strong> {{titleDetails[0].TitleId}}</p>
+					<p ng-show="titleDetails[0].Awards.length > 0"><strong>Awards</strong></p>
+					<table class="table table-striped"  ng-show="titleDetails[0].Awards.length">
+						<tr>
+							<th>Award</th>
+							<th>Award Company</th>
+							<th>Award Won</th>
+							<th>Award Year</th>
+						</tr>
+						<tr ng-repeat="awards in titleDetails[0].Awards">
+							<td>{{ awards.Award }}</td>
+							<td>{{ awards.AwardCompany }}</td>
+							<td>{{ awards.AwardWon }}</td>
+							<td>{{ awards.AwardYear }}</td>
+						</tr>
+					</table>
+					<div><strong>Genres</strong></div>
+					<ul>
+						<li ng-repeat="genre in titleDetails[0].Genres">{{ genre }}</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+		<script type="text/javascript" src="controllers/clientController.js"></script>
+	</body>
+
+</html>

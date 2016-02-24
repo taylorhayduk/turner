@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Taylor Hayduk | Turner Interview Coding Challenge</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body ng-app="turnerApp">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Turner Interview</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li class="active"><a href="/contact">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div class="container content">
+        <br />
+        <h2 class="header-text text-center">Contact</h2>
+
+        <div class="col-xs-12 col-md-8 col-md-offset-2" ng-controller="contactController">
+
+            <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+                <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control" ng-model="name" required>
+                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" ng-model="user.email">
+                    <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="userSubject">Subject</label>
+                    <input type="text" class="form-control" id="userSubject">
+                </div>
+
+                <div class="form-group">
+                    <label for="userMessage">Your Message</label>
+                    <textarea class="form-control" rows="5" id="userMessage" ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" >Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+    <script type="text/javascript" src="controllers/clientController.js"></script>
+</body>
+
+</html>

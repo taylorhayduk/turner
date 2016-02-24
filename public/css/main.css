@@ -1,0 +1,23 @@
+/****** Main Styling ******/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+
+.content {
+	margin-top: 70px;
+}
+
+/****** Logo Div Styling ******/
+
+.header-text {
+	padding: 0;
+	/*margin: -25px 0 0 0;*/
+	font-weight: 500;
+	font-size: 60px;
+	color: #FFA000;
+}
+.titleNames {
+	margin-bottom: 10px;
+}

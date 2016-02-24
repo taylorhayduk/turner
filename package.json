@@ -1,0 +1,26 @@
+{
+  "name": "Turner-Interview",
+  "version": "1.0.0",
+  "description": "Demonstration of my programming prowess",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylorhayduk/turner"
+  },
+  "bugs": "https://github.com/taylorhayduk/turner/issues",
+  "keywords": [
+    "MEAN",
+    "MongoDB",
+    "Express",
+    "Angular",
+    "Node",
+    "javascript",
+    "turner"
+  ],
+  "author": "Taylor Hayduk",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.4",
+    "mongodb": "^2.0.33"
+  }
+}
