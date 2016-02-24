@@ -1,10 +1,10 @@
 'use strict';
 
-function ClickHandler (db) {
-	var clicks = db.collection('Titles');
+function RouteHandler (db) {
+	var routes = db.collection('Titles');
 
 	this.searchTitles = function(req, res) {
-		clicks.find( {TitleName: { $regex: ".*" + req.query.title + ".*", $options: "i" } }).toArray( function (err, result) {
+		routes.find( {TitleName: { $regex: ".*" + req.query.title + ".*", $options: "i" } }).toArray( function (err, result) {
 			if (err) {
 				throw err;
 			}
@@ -18,7 +18,7 @@ function ClickHandler (db) {
 	};
 
 	this.getTitleDetails = function(req, res) {
-		clicks.find( {_id: req.query.id}).toArray( function(err, result) {
+		routes.find( {_id: req.query.id}).toArray( function(err, result) {
 			if (err) {
 				throw err;
 			}
@@ -29,4 +29,4 @@ function ClickHandler (db) {
 
 }
 
-module.exports = ClickHandler;
+module.exports = RouteHandler;

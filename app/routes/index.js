@@ -1,11 +1,11 @@
 'use strict';
 
 var path = process.cwd();
-var ClickHandler = require(path + '/app/controllers/serverController.js');
+var RouteHandler = require(path + '/app/controllers/serverController.js');
 
 module.exports = function (app, db) {
 
-var clickHandler = new ClickHandler(db);
+var routeHandler = new RouteHandler(db);
 	app.route('/')
 		.get(function(req, res) {
 			res.sendFile(path + '/public/index.html');
@@ -22,9 +22,9 @@ var clickHandler = new ClickHandler(db);
 		});
 
 	app.route('/api/searchTitles')
-		.get(clickHandler.searchTitles);
+		.get(routeHandler.searchTitles);
 
 	app.route('/api/getDetails')
-		.get(clickHandler.getTitleDetails);
+		.get(routeHandler.getTitleDetails);
 
 };
